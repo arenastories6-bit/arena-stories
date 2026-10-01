@@ -1,0 +1,1 @@
+var e=`/assets/turf-hero-NPRRi2ik.jpg`;export{e as t};

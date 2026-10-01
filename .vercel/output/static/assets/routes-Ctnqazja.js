@@ -1,0 +1,1 @@
+import{m as e}from"./index-quzqUg_M.js";var t=e(),n=()=>(0,t.jsx)(`main`,{className:`grid min-h-screen place-items-center bg-background`,children:(0,t.jsx)(`h1`,{className:`font-display text-6xl`,children:`ARENA NOT FOUND`})});export{n as notFoundComponent};
