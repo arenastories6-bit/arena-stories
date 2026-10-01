@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SplashScreen } from "@/components/splash-screen";
 import { Toaster } from "@/components/ui/sonner";
-
+import { AuthProvider } from "@/hooks/use-auth";
 /* ─────────────────────────────────────────────────────────
    404 Not Found fallback
    ───────────────────────────────────────────────────────── */
@@ -144,6 +144,7 @@ function RootShell({ children }: { children: ReactNode }) {
             `,
           }}
         />
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </head>
       <body>
         {children}
@@ -158,10 +159,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SplashScreen />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <Toaster />
+      <AuthProvider>
+        <SplashScreen />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

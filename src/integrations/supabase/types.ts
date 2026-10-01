@@ -25,6 +25,7 @@ export type Database = {
           status: string
           team_size: number
           updated_at: string
+          user_id: string | null
           venue_id: string
         }
         Insert: {
@@ -37,6 +38,7 @@ export type Database = {
           status?: string
           team_size: number
           updated_at?: string
+          user_id?: string | null
           venue_id: string
         }
         Update: {
@@ -49,6 +51,7 @@ export type Database = {
           status?: string
           team_size?: number
           updated_at?: string
+          user_id?: string | null
           venue_id?: string
         }
         Relationships: [
@@ -170,10 +173,11 @@ export type Database = {
     Functions: {
       create_guest_booking: {
         Args: {
-          p_player_name: string
-          p_slot_id: string
-          p_team_size: number
           p_venue_id: string
+          p_slot_id: string
+          p_player_name: string
+          p_team_size: number
+          p_user_id?: string
         }
         Returns: {
           booking_code: string
